@@ -6,6 +6,7 @@ namespace RainVolumeControl
     {
         public static ConfigEntry<float> RainVolumeMultiplier { get; private set; }
         public static ConfigEntry<float> BTRVolumeMultiplier { get; private set; }
+        public static ConfigEntry<float> AirdropVolumeMultiplier { get; private set; }
         
         public static void Init(ConfigFile config)
         {
@@ -24,6 +25,15 @@ namespace RainVolumeControl
                 1f,
                 new ConfigDescription(
                     "Multiplier applied to BTR movement transition volume (1 is same as vanilla)",
+                    new AcceptableValueRange<float>(0f, 2f)
+                )
+            );
+            AirdropVolumeMultiplier = config.Bind(
+                "General",
+                "Aidrop Volume Multiplier",
+                1f,
+                new ConfigDescription(
+                    "Multiplier applied to the airdrop volume (1 is same as vanilla)",
                     new AcceptableValueRange<float>(0f, 2f)
                 )
             );
