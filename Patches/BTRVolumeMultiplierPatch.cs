@@ -5,23 +5,17 @@ using System.Reflection;
 
 namespace RainVolumeControl.Patches
 {
-    internal class BTRVolumeMultiplierPatch : ModulePatch
+    public class BTRVolumeMultiplierPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(BtrSoundController), "method_10");
+            return AccessTools.PropertyGetter(typeof(VehicleMovementSoundContext), "MaxAllowedVolume");
         }
 
-        [PatchPrefix]
-        private static bool Prefix(GInterface218 inControl, GInterface218 outControl, EnvironmentType environment, float t)
+        [PatchPostfix]
+        private static void PatchPostfix(ref float __result)
         {
-            float multiplier = Settings.BTRVolumeMultiplier.Value;    
-            GInterface218 active = (environment == EnvironmentType.Outdoor) ? outControl : inControl;
-            GInterface218 inactive = (environment == EnvironmentType.Outdoor) ? inControl : outControl;     
-            inactive.SetBaseVolume((1f - t) * multiplier);
-            active.SetBaseVolume(t * multiplier);
-        
-            return false;
+            __result *= Settings.BTRVolumeMultiplier.Value;
         }
     }
 }
