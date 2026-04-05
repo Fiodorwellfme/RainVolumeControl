@@ -6,7 +6,7 @@ using RainVolumeControl.Patches;
 
 namespace RainVolumeControl
 {
-    [BepInPlugin("com.fiodor.rainvolumecontrol", "RainVolumeControl", "1.0.0")]
+    [BepInPlugin("com.fiodor.rainvolumecontrol", "RainVolumeControl", "1.1.0")]
     public class Plugin : BaseUnityPlugin
     {
         public static ManualLogSource LogSource;
@@ -14,10 +14,12 @@ namespace RainVolumeControl
         private void Awake()
         {
             LogSource = Logger;
-            LogSource.LogInfo("RainVolumeControl 1.0.0 plugin loaded!");
+            LogSource.LogInfo("RainVolumeControl 1.1.0 plugin loaded!");
             Settings.Init(Config);
             new RainVolumeMultiplierPatch().Enable();
-
+            new AirdropVolumeMultiplierPatch().Enable();
+            new BTRVolumeMultiplierPatch().Enable();
+            new AirplaneVolumePatch().Enable();
             Settings.RainVolumeMultiplier.SettingChanged += (_, __) =>
             {
                 foreach (var blender in FindObjectsOfType<PrecipitationAmbientBlender>())
