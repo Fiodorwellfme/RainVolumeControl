@@ -1,4 +1,4 @@
-﻿using Audio.Vehicles.BTR;
+﻿using Audio.Vehicles;
 using HarmonyLib;
 using SPT.Reflection.Patching;
 using System.Reflection;

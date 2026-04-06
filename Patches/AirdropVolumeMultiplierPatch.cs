@@ -1,13 +1,12 @@
 using HarmonyLib;
 using System.Reflection;
 using Audio.SpatialSystem;
-using Comfort.Common;
 using SPT.Reflection.Patching;
 using UnityEngine;
 
 namespace RainVolumeControl.Patches
 {
-    public class AirdropVolumePatch : ModulePatch
+    public class AirdropVolumeMultiplierPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod()
         {
