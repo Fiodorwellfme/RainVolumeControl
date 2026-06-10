@@ -2,11 +2,11 @@
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using RainVolumeControl.Patches;
+using EnvironmentVolumeControl.Patches;
 
-namespace RainVolumeControl
+namespace EnvironmentVolumeControl
 {
-    [BepInPlugin("com.fiodor.rainvolumecontrol", "RainVolumeControl", "1.1.0")]
+    [BepInPlugin("com.fiodor.environmentvolumecontrol", "Environment Volume Control", "1.1.1")]
     public class Plugin : BaseUnityPlugin
     {
         public static ManualLogSource LogSource;
@@ -14,7 +14,7 @@ namespace RainVolumeControl
         private void Awake()
         {
             LogSource = Logger;
-            LogSource.LogInfo("RainVolumeControl 1.1.0 plugin loaded!");
+            LogSource.LogInfo("EnvironmentVolumeControl 1.1.1 plugin loaded!");
             Settings.Init(Config);
             new RainVolumeMultiplierPatch().Enable();
             new AirdropVolumeMultiplierPatch().Enable();

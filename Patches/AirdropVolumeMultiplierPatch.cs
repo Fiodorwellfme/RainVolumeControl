@@ -4,7 +4,7 @@ using Audio.SpatialSystem;
 using SPT.Reflection.Patching;
 using UnityEngine;
 
-namespace RainVolumeControl.Patches
+namespace EnvironmentVolumeControl.Patches
 {
     public class AirdropVolumeMultiplierPatch : ModulePatch
     {

@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace RainVolumeControl
+namespace EnvironmentVolumeControl
 {
     public static class Settings
     {
@@ -13,7 +13,7 @@ namespace RainVolumeControl
             RainVolumeMultiplier = config.Bind(
                 "General",
                 "Rain Volume Multiplier",
-                1f,
+                0.5f,
                 new ConfigDescription(
                     "Multiplier applied to the rain volume (1 is same as vanilla)",
                     new AcceptableValueRange<float>(0f, 2f)
@@ -22,7 +22,7 @@ namespace RainVolumeControl
             BTRVolumeMultiplier = config.Bind(
                 "General",
                 "BTR Volume Multiplier",
-                1f,
+                0.3f,
                 new ConfigDescription(
                     "Multiplier applied to BTR movement transition volume (1 is same as vanilla)",
                     new AcceptableValueRange<float>(0f, 2f)
@@ -31,7 +31,7 @@ namespace RainVolumeControl
             AirdropVolumeMultiplier = config.Bind(
                 "General",
                 "Aidrop Volume Multiplier",
-                1f,
+                0.8f,
                 new ConfigDescription(
                     "Multiplier applied to the airdrop volume (1 is same as vanilla)",
                     new AcceptableValueRange<float>(0f, 2f)
